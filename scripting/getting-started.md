@@ -2,8 +2,9 @@
 
 A PoEBane script is **TypeScript/JavaScript** run against a **live** *Path of Exile 2* process.
 You edit it in the Studio's Monaco editor (typed against `poebane.d.ts`) and it is evaluated by
-the embedded runtime. Everything below is grounded in
-[`api/poebane.d.ts`](api/poebane.d.ts) — the authoritative, generated API.
+the embedded runtime. Everything below is grounded in the generated **`poebane.d.ts`** — the
+authoritative API (see [`api/README.md`](api/README.md) for where to find it; in the app it is
+mounted live, always matching the running build).
 
 ## 1. Reading game state — `World`
 
@@ -39,7 +40,7 @@ Use these to place overlay drawing at a world position.
 ## 3. Driving input
 
 - `PressKey(key)`, `HoldKey(key)`, `ReleaseKey(key)`, `IsKeyPressed(key)` — `key` is a member of
-  the `Key` enum (see the `.d.ts`).
+  the `Key` enum (see `poebane.d.ts`).
 - `Input` (a `Poe2InputController`) for lower-level control.
 - `World.Flasks.Use(index)` uses a belt slot directly (`0`/`1` = life/mana, `2..4` = charms).
 
