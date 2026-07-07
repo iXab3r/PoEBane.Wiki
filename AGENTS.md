@@ -108,8 +108,27 @@ Rules:
 - **`README.md` and `AGENTS.md` never publish** (repo-internal). Technical files like this one carry
   `published: false`.
 - **`home.md` is the docs landing page** — its slug is empty, so it becomes the docs root.
-- English pages live at the repo root (e.g. `scripting/getting-started.md`). Russian pages, when they
-  exist, mirror the structure under `ru/` (e.g. `ru/scripting/getting-started.md`). There are none yet.
+- **Languages:** English pages live at the repo root (e.g. `scripting/getting-started.md`); their
+  Russian counterparts mirror the same structure and slugs under `ru/` (e.g.
+  `ru/scripting/getting-started.md`). Matching slugs let the docs site pair them with a language
+  switcher automatically. See "Languages and translation" below.
 - Link between articles with **relative `.md` paths** (`[Best practices](../best-practices.md)`); the
   ingester rewrites them to the right docs route. Do not link to `README.md`, `AGENTS.md`, or
   `poebane.d.ts` from a published page — they are not published; reference them as inline code instead.
+
+## Languages and translation
+
+**Russian is the primary authoring language for PoEBane.** New content is written in Russian first,
+then translated to English:
+
+- Author the Russian page under `ru/` (the same relative path and slug the English page will have).
+- Create or refresh the English page at the repo root as the translation.
+- Keep the two structurally aligned — same folder layout, same slugs, same section order. Only the
+  prose language differs; matching slugs give the docs language switcher for free.
+- Add `ai-translated` to the `tags:` of any page produced or updated by AI-assisted translation.
+- In Russian prose, keep English only for real product / API names, code identifiers, UI labels, and
+  file names (`World`, `PlayerValid()`, `SetAutoFarm`, `poebane.d.ts`, TypeScript, Path of Exile 2).
+  Everything else should read naturally in Russian.
+
+The initial article set started in English and was mirrored to `ru/`; from here on the source is
+Russian.
