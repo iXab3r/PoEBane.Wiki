@@ -22,6 +22,7 @@ purpose: it is derived from the build so it can never drift (see
 | --- | --- |
 | an **AI coding agent** | [`AGENTS.md`](AGENTS.md) first |
 | **writing your first script** | [`scripting/getting-started.md`](scripting/getting-started.md) |
+| **copying a working example** | [`recipes/`](recipes/low-life-flask.md) |
 | **looking up an exact signature** | `poebane.d.ts` — see [`scripting/api/README.md`](scripting/api/README.md) for where it lives |
 | **avoiding the common traps** | [`best-practices.md`](best-practices.md) |
 

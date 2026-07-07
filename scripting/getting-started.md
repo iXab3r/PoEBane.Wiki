@@ -1,12 +1,23 @@
+---
+title: Getting started
+description: The PoEBane scripting model — reading World, projection, driving input, the SetAuto toggles, overlay and logging
+published: true
+date: 2026-07-07T00:00:00.000Z
+tags: PoEBane, Path of Exile 2, scripting, getting started
+editor: markdown
+dateCreated: 2026-07-07T00:00:00.000Z
+order: 10
+---
+
 # Getting started with PoEBane scripts
 
 A PoEBane script is **TypeScript/JavaScript** run against a **live** *Path of Exile 2* process.
 You edit it in the Studio's Monaco editor (typed against `poebane.d.ts`) and it is evaluated by
-the embedded runtime. Everything below is grounded in the generated **`poebane.d.ts`** — the
-authoritative API (see [`api/README.md`](api/README.md) for where to find it; in the app it is
-mounted live, always matching the running build).
+the embedded runtime. Everything below is grounded in the generated `poebane.d.ts` — the
+authoritative API surface emitted by the running build. This wiki carries the prose; the `.d.ts`
+carries the exact signatures.
 
-## 1. Reading game state — `World`
+## 1. Reading game state
 
 `World` (a `Poe2WorldState`) is the entry point for live state:
 
@@ -30,7 +41,7 @@ An `Entity` exposes `IsValid`, `Id`, `Type`, `Path`, `Metadata`, `PlayerName`, `
 
 **Always guard reads:** call `PlayerValid()` and null-check `World.Player` first.
 
-## 2. Projection — world → screen
+## 2. Projection — world to screen
 
 - `World.W2S(worldPos)` → `Vector2` screen point; `World.TryW2S(worldPos)` → `Vector2 | null`.
 - `World.W2C(worldPos)` / `World.TryW2C(worldPos)` → client-space point.
@@ -55,7 +66,7 @@ SetAutoFollow(true);
 SetAutoPickup(true);
 ```
 
-## 5. Overlay + logging
+## 5. Overlay and logging
 
 - `DisplayText(text, worldPosition, color?)` draws text at a world position.
 - `Log` / `Trace` / `Debug` / `Info` / `Warn` / `Error` and `console.log(...)` for logging.
@@ -85,3 +96,6 @@ if (PlayerValid()) {
   }
 }
 ```
+
+See the [recipes](../recipes/low-life-flask.md) for more copy-ready scripts, and
+[best practices](../best-practices.md) before you ship one.

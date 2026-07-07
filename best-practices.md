@@ -1,10 +1,20 @@
+---
+title: Best practices
+description: The do and don't rules that keep PoEBane scripts correct, cheap, and safe on the game loop
+published: true
+date: 2026-07-07T00:00:00.000Z
+tags: PoEBane, Path of Exile 2, scripting, best practices
+editor: markdown
+dateCreated: 2026-07-07T00:00:00.000Z
+order: 30
+---
+
 # PoEBane scripting — best practices
 
 ## Do
 
-- **Read the typed API first.** [`scripting/api/poebane.d.ts`](scripting/api/poebane.d.ts) is
-  generated from the runtime bindings and is authoritative. Look up the exact signature there
-  instead of guessing.
+- **Read the typed API first.** `poebane.d.ts` is generated from the runtime bindings and is
+  authoritative. Look up the exact signature there instead of guessing.
 - **Guard live reads with `PlayerValid()`.** `World.Player` is `Entity | null` and most state
   is only meaningful in-game. Check `PlayerValid()` (and null-check `World.Player`) first.
 - **Keep the tick body cheap.** Your script is evaluated on the game loop. Do the minimum per
