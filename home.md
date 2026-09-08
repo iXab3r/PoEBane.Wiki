@@ -3,7 +3,7 @@ title: PoEBane scripting
 description: Write TypeScript automation for a live Path of Exile 2 process — read World, drive input, toggle the built-in automations
 published: true
 date: 2026-07-07T00:00:00.000Z
-tags: PoEBane, Path of Exile 2, scripting, TypeScript, automation
+tags: PoEBane, Path of Exile 2, scripting, TypeScript, automation, ai-translated
 editor: markdown
 dateCreated: 2026-07-07T00:00:00.000Z
 order: 1
@@ -38,3 +38,8 @@ The exact signatures live in the generated `poebane.d.ts`, **not** in this wiki 
 emits its own copy so it can never drift. If a member is not in `poebane.d.ts`, it does not exist;
 do not rely on it. These pages carry the concepts and examples; the `.d.ts` is the source of truth
 for exact names and types.
+
+
+## Waits and timers
+
+[Execution and waiting primitives](scripting/execution-and-waits.md) explains Sleep without await, independent rules, WaitUntil and Stop. [Waiting recipes](recipes/waiting.md) covers sequential processing and following a leader. These POE-81 features are unreleased; check your installed declarations.
