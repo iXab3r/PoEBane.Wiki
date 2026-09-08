@@ -3,7 +3,7 @@ title: Low-life flask
 description: Use the life and mana belt flasks automatically when the player's vitals drop below a threshold
 published: true
 date: 2026-07-07T00:00:00.000Z
-tags: PoEBane, Path of Exile 2, scripting, flasks, recipe
+tags: PoEBane, Path of Exile 2, scripting, flasks, recipe, ai-translated
 editor: markdown
 dateCreated: 2026-07-07T00:00:00.000Z
 order: 31
@@ -37,3 +37,8 @@ Notes:
 - `HasItemAt(i)` guards against pressing an empty or uncharged slot.
 - Keep this in the tick body: a couple of cheap reads plus a conditional press.
 - Charms sit in slots `2..4` — the same `HasItemAt` / `Use` pattern applies.
+
+
+## Waits and timers
+
+[Execution and waiting primitives](../scripting/execution-and-waits.md) explains Sleep without await, independent rules, WaitUntil and Stop. [Waiting recipes](waiting.md) covers sequential processing and following a leader. These POE-81 features are unreleased; check your installed declarations.

@@ -3,7 +3,7 @@ title: Getting started
 description: The PoEBane scripting model — reading World, projection, driving input, the SetAuto toggles, overlay and logging
 published: true
 date: 2026-07-07T00:00:00.000Z
-tags: PoEBane, Path of Exile 2, scripting, getting started
+tags: PoEBane, Path of Exile 2, scripting, getting started, ai-translated
 editor: markdown
 dateCreated: 2026-07-07T00:00:00.000Z
 order: 10
@@ -99,3 +99,8 @@ if (PlayerValid()) {
 
 See the [recipes](../recipes/low-life-flask.md) for more copy-ready scripts, and
 [best practices](../best-practices.md) before you ship one.
+
+
+## Waits and timers
+
+[Execution and waiting primitives](execution-and-waits.md) explains Sleep without await, independent rules, WaitUntil and Stop. [Waiting recipes](../recipes/waiting.md) covers sequential processing and following a leader. These POE-81 features are unreleased; check your installed declarations.
