@@ -17,7 +17,7 @@ repository is your reference for the scripting API, conventions, and examples.
 
 1. Follow the user's own project instructions first.
 2. Use **this repository** for PoEBane scripting concepts, conventions, best-practices, and examples.
-3. Use the generated **`poebane.d.ts`** for exact signatures — it is authoritative and always current
+3. Use the generated **`poebane.d.ts`** for exact signatures — it is authoritative for the matching target build
    (see the workflow below). Prefer it and these docs over your own memory: the API surface is
    generated and versioned; your training data is not.
 4. Use the live **PoEBane MCP** only for focused runtime lookups (current world state, window
@@ -29,11 +29,21 @@ repository is your reference for the scripting API, conventions, and examples.
    [`scripting/getting-started.md`](scripting/getting-started.md).
 2. **Look up the exact API in `poebane.d.ts` before proposing code** — globals, `World`, `Input`, the
    typed accessors and interfaces. In the app, PoeBane mounts this file live (the running build's own
-   surface — always current; you are told its path and that it is authoritative). Offline, read it
-   from the build at `src/PoeBane/ui/generated/poebane.d.ts`. If a member is not in it, it does not
-   exist — do not invent it. See [`scripting/api/README.md`](scripting/api/README.md).
+   surface; the app supplies its path). Offline, read it from the target application's checkout at
+   `src/PoeBane/ui/generated/poebane.d.ts`, not from this wiki. Check its `apiHash` against the target
+   build's `POEBANE_SCRIPT_API_HASH` when available; a saved/exported copy can be stale. If the target
+   build cannot be established, report that gap before claiming exact compatibility. If a member is
+   absent from the matching reference, do not invent it. See [`scripting/api/README.md`](scripting/api/README.md).
 3. Match the style of the user's existing script. Write the smallest change that works.
 4. Guard live-state reads with `PlayerValid()`; keep per-tick work cheap (see best-practices).
+
+## Independent architecture and review
+
+Start each delegated architect, advisor, and reviewer with empty conversation context (`fork_turns="none"` with `spawn_agent`, or the host's equivalent). Provide only the concrete question, repository path and relevant revisions, scope, constraints, target build/API evidence when relevant, and raw evidence locations. Keep the brief focused on the actual topic; omit the author's reasoning, preferred verdict, and previous agents' conclusions.
+
+Each agent independently reads the applicable guidance and inspects the relevant docs and matching generated API when required. Report evidence, conclusions, and uncertainty; the author's explanation is not proof. The final reviewer must be separate from the implementer and design advisor, remain read-only, and inspect the final diff at the named revision. Disclose unavailable independent review rather than presenting self-review as independent.
+
+For internal guidance-only edits, verify relative links, retained frontmatter/publishing rules, and the diff. Static documentation checks do not prove script behavior against a running game or current API build.
 
 ## What's here
 
@@ -43,7 +53,7 @@ repository is your reference for the scripting API, conventions, and examples.
 - [`recipes/`](recipes/low-life-flask.md) — short, copy-ready example scripts.
 - [`scripting/api/README.md`](scripting/api/README.md) — where the **authoritative** generated API
   reference (`poebane.d.ts` + `poebane.script-api.json`) lives and how to read it. The reference
-  itself is **not committed here** — the running build emits it, so it can never drift.
+  itself is **not committed here** — use the target build's emitted copy and verify saved/exported copies against that build.
 
 ## The model in one paragraph
 
